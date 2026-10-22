@@ -1,0 +1,116 @@
+const hotels = [
+  {
+    id: 1,
+    name: 'Kohinoor Palace',
+    location: 'Ayodhya, Uttar Pradesh',
+    address: 'Near Ram Mandir, Ayodhya',
+    price: 20000,
+    rating: 4.8,
+    reviews: 124,
+    category: 'Luxury Rooms',
+    type: 'Suite',
+    facilities: ['WIFI', 'AC', 'TV', 'Parking'],
+    images: [
+      '/img/images (1).jpeg',
+      '/img/images.jpeg',
+      '/img/homestay-hotel.jpg',
+    ],
+  },
+  {
+    id: 2,
+    name: 'Hotel Palace Grand',
+    location: 'Ayodhya, Uttar Pradesh',
+    address: 'Near Hanuman Garhi, Ayodhya',
+    price: 8500,
+    rating: 4.5,
+    reviews: 98,
+    category: 'Deluxe Rooms',
+    type: 'Eco Hotel',
+    facilities: ['WIFI', 'AC', 'TV'],
+    images: [
+      '/img/homestay-hotel.jpg',
+      '/img/images.jpeg',
+      '/img/images (1).jpeg',
+    ],
+  },
+  {
+    id: 3,
+    name: 'Royal Comfort Inn',
+    location: 'Ayodhya, Uttar Pradesh',
+    address: 'Civil Lines, Ayodhya',
+    price: 4500,
+    rating: 4.2,
+    reviews: 76,
+    category: 'Budget Rooms',
+    type: 'Inn',
+    facilities: ['WIFI', 'TV', 'Parking'],
+    images: [
+      '/img/images.jpeg',
+      '/img/homestay-hotel.jpg',
+      '/img/images (1).jpeg',
+    ],
+  },
+  {
+    id: 4,
+    name: 'The Heritage Stay',
+    location: 'Ayodhya, Uttar Pradesh',
+    address: 'Ram Path, Ayodhya',
+    price: 12000,
+    rating: 4.7,
+    reviews: 156,
+    category: 'Luxury Rooms',
+    type: 'Suite',
+    facilities: ['WIFI', 'AC', 'TV', 'Parking'],
+    images: [
+      '/img/images (1).jpeg',
+      '/img/homestay-hotel.jpg',
+      '/img/images.jpeg',
+    ],
+  },
+  {
+    id: 5,
+    name: 'Sunrise Budget Hotel',
+    location: 'Ayodhya, Uttar Pradesh',
+    address: 'Faizabad Road, Ayodhya',
+    price: 2500,
+    rating: 4.0,
+    reviews: 52,
+    category: 'Budget Rooms',
+    type: 'Hostel',
+    facilities: ['WIFI', 'TV'],
+    images: [
+      '/img/homestay-hotel.jpg',
+      '/img/images (1).jpeg',
+      '/img/images.jpeg',
+    ],
+  },
+  {
+    id: 6,
+    name: 'Divine Residency',
+    location: 'Ayodhya, Uttar Pradesh',
+    address: 'Near Railway Station, Ayodhya',
+    price: 6500,
+    rating: 4.4,
+    reviews: 87,
+    category: 'Deluxe Rooms',
+    type: 'Inn',
+    facilities: ['WIFI', 'AC', 'Parking'],
+    images: [
+      '/img/images.jpeg',
+      '/img/images (1).jpeg',
+      '/img/homestay-hotel.jpg',
+    ],
+  },
+]
+
+const categories = ['Luxury Rooms', 'Budget Rooms', 'Deluxe Rooms']
+const accommodationTypes = ['Dorms', 'Eco Hotel', 'Hostel', 'Suite', 'Inn']
+const facilities = ['WIFI', 'TV', 'AC', 'Single bed', 'Parking']
+
+
+export {
+    hotels,
+    categories,
+    accommodationTypes,
+    facilities,
+}

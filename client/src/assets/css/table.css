@@ -1,0 +1,20 @@
+.data-table-card { overflow: hidden; border: 1px solid #e5e5e5; border-radius: 12px; background: #fff; }
+.data-table-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 16px; border-bottom: 1px solid #e7e7e7; }
+.data-table-search { display: flex; align-items: center; gap: 10px; width: min(420px, 100%); min-height: 38px; padding: 0 11px; border: 1px solid #ddd; border-radius: 8px; color: #777; }
+.data-table-search input { width: 100%; min-width: 0; border: 0; outline: 0; background: transparent; font-size: 13px; }
+.data-table-search button { border: 0; background: transparent; color: #777; }
+.data-table-count { color: #777; font-size: 12px; white-space: nowrap; }
+.data-table-scroll { max-width: 100%; overflow: auto; }
+.data-table { width: max-content; min-width: 100%; margin: 0; border-collapse: separate; border-spacing: 0; font-size: 13px; }
+.data-table thead th { position: sticky; top: 0; z-index: 2; height: 44px; padding: 12px 16px; border-bottom: 1px solid #ddd; background: #e9e9e9; color: #505050; font-weight: 500; white-space: nowrap; }
+.data-table tbody td { height: 48px; padding: 12px 16px; border-bottom: 0; color: #454545; white-space: nowrap; vertical-align: middle; }
+.data-table tbody tr:nth-child(even) td { background: #f5f5f5; }
+.data-table tbody tr:nth-child(odd) td { background: #fff; }
+.data-table tbody tr:hover td { background: #eef2ff; }
+.data-table-sticky-column { position: sticky; left: 0; z-index: 1; box-shadow: 5px 0 8px -8px #555; }
+.data-table thead .data-table-sticky-column { z-index: 3; background: #e5e5e5; }
+.data-table-empty { padding: 36px !important; text-align: center; color: #777 !important; }
+.data-table-footer { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 16px; border-top: 1px solid #e7e7e7; color: #777; font-size: 12px; }
+.data-table-pagination { display: flex; align-items: center; gap: 12px; }
+.data-table-pagination .btn { font-size: 12px; }
+@media (max-width: 600px) { .data-table-footer { align-items: flex-start; flex-direction: column; } .data-table-toolbar { align-items: flex-start; flex-direction: column; } }

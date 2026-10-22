@@ -1,0 +1,44 @@
+/* .app-sidebar { position: fixed; z-index: 1040; top: 8px; bottom: 8px; left: 8px; display: flex; flex-direction: column; width: 64px; overflow: visible; border: 1px solid #e7e7e7; border-radius: 13px; background: #fff; box-shadow: 0 2px 10px rgb(0 0 0 / 5%); transition: width .2s ease; }
+.app-sidebar.is-open { width: 224px; } */
+
+
+.app-sidebar {
+  position: fixed;
+  z-index: 1040;
+  top: 8px;
+  bottom: 8px;
+  left: 8px;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 64px;
+  overflow: visible;
+
+  border: 1px solid #e7e7e7;
+  border-radius: 13px;
+  background: #fff;
+
+  box-shadow: 0 2px 10px rgb(0 0 0 / 5%);
+  transition: width 0.2s ease;
+}
+
+.app-sidebar.is-open {
+  width: 224px;
+}
+
+
+.sidebar-brand { position: relative; display: flex; align-items: center; height: 64px; padding: 10px; border-bottom: 1px solid #eee; }
+.sidebar-logo { display: grid; place-items: center; flex: 0 0 42px; height: 42px; border-radius: 10px; background: #3278f6; color: #fff; font-weight: 700; text-decoration: none; }
+.sidebar-pin { position: absolute; z-index: 2; top: 46px; right: -11px; display: grid; place-items: center; width: 25px; height: 25px; border: 1px solid #fff; border-radius: 50%; background: #8790ff; color: white; box-shadow: 0 1px 4px #ccc; }
+.sidebar-navigation { flex: 1; overflow-y: auto; overflow-x: hidden; padding: 12px 8px; }
+.sidebar-link { display: flex; align-items: center; gap: 14px; width: 100%; min-height: 45px; margin-bottom: 5px; padding: 0 12px; border: 0; border-radius: 10px; background: transparent; color: #737373; text-decoration: none; white-space: nowrap; }
+.sidebar-link:hover { background: #f4f6ff; color: #3f55ff; }
+.sidebar-link.active { background: #eef0ff; color: #394dff; }
+.sidebar-link-icon { display: grid; place-items: center; flex: 0 0 20px; width: 20px; font-size: 20px; }
+.sidebar-link-label { overflow: hidden; opacity: 0; transition: opacity .15s ease; }
+.is-open .sidebar-link-label { opacity: 1; }
+.sidebar-bottom { padding: 10px 8px; border-top: 1px solid #eee; }
+.is-closed .sidebar-link { justify-content: center; padding: 0; }
+.is-closed .sidebar-link-label { display: none; }
+@media (max-width: 700px) { .app-sidebar.is-open { width: 224px; } }

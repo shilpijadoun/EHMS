@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import './common.css';
+@import './sidebar.css';
+@import './table.css';
+@import "./home.css";
+@import "./topbar.css";
+@import './help.css';
+@import './settings.css';
+@import './profile.css';
+@import './staff.css';
+
+
+
+
+
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Inter, Arial, sans-serif; color: #252525; background: #f5f5f5; }
+button, input { font: inherit; }

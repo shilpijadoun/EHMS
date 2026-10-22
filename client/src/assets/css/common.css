@@ -1,0 +1,114 @@
+
+
+body {
+  margin: 0;
+  font-family: 'Space Grotesk', Arial, sans-serif;
+  background-color: #fff;
+  color: #242923;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+.admin-shell { min-height: 100vh; }
+
+.admin-shell {
+  --sidebar-width: 60px;
+  min-height: 100vh;
+}
+
+.admin-shell:has(.app-sidebar.is-open) {
+  --sidebar-width: 220px;
+}
+
+.admin-main {
+  min-width: 0;
+  margin-left: var(--sidebar-width);
+  transition: margin-left 0.2s ease;
+}
+
+.admin-content {
+  min-width: 0;
+  padding: 22px 24px;
+  overflow-x: hidden;
+}
+
+
+.page-breadcrumb { color: #5e5e5e; font-size: 14px; margin: 2px 0 24px; }
+.page-breadcrumb span { padding: 0 8px; color: #aaa; }
+.admin-list-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin: 16px 0; }
+.admin-list-toolbar h1 { margin: 0; font-size: 20px; font-weight: 600; }
+.table-record-link { color: #344cff; text-decoration: none; font-weight: 500; }
+@media (max-width: 700px) { .admin-main { margin-left: 64px; } .admin-content { padding: 16px 12px; } }
+
+
+/* Sticky search bar */
+.rooms-search-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+  background: #fff;
+}
+
+/* Sticky desktop filters */
+.rooms-filter-sticky {
+  position: sticky;
+  top: 100px;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+/* Keep dropdown above nearby content */
+.guest-menu {
+  z-index: 1030;
+}
+
+/* Smooth thumbnail and layout behavior */
+.room-gallery {
+  position: relative;
+}
+
+.room-main-image {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.room-thumbnail {
+  width: 70px;
+  height: 55px;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.room-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.room-thumbnail-active {
+  border-color: #212529;
+}
+
+.favorite-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+@media (max-width: 991.98px) {
+  .rooms-search-bar {
+    top: 0;
+  }
+}
