@@ -18,6 +18,10 @@ import ManageRooms from './pages/admin/ManageRooms'
 import ManageStaff from './pages/admin/ManageStaff'
 import ManageBookings from './pages/admin/ManageBookings'
 import StaffDashboard from './pages/staff/StaffDashboard'
+import Reservations from './pages/staff/Reservations'
+import CheckIn from './pages/staff/CheckIn'
+import CheckOut from './pages/staff/CheckOut'
+import RoomStatus from './pages/staff/RoomStatus'
 
 
 
@@ -48,8 +52,12 @@ function App() {
 
         <Route path="/staff" element={<StaffLayout />}>
           <Route index element={<StaffDashboard />} />
-          <Route path="check-in" element={<h2>Guest Check-in</h2>} />
-          <Route path="check-out" element={<h2>Guest Check-out</h2>} />
+          <Route path="reservations" element={<Reservations />} />
+
+          {/* <Route path="check-in" element={<h2>Guest Check-in</h2>} /> */}
+          <Route path="check-in" element={<CheckIn />} />
+          <Route path="check-out" element={<CheckOut />} />
+          <Route path="rooms" element={<RoomStatus />} />
         </Route>
 
         <Route path="*" element={<Navigate to="/" replace />} />
