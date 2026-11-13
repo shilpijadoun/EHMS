@@ -59,7 +59,7 @@ function App() {
           <Route path="check-out" element={<CheckOut />} />
           <Route path="rooms" element={<RoomStatus />} />
         </Route>
-
+hat
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
