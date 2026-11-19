@@ -1,0 +1,173 @@
+.hp-card {
+  background: #fff;
+  border: 1px solid #e0e5e1;
+  border-radius: 18px;
+  padding: 26px;
+  box-shadow: 0 4px 18px #173b2510;
+}
+.eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #537060;
+}
+.auth-card {
+  max-width: 460px;
+  margin: 35px auto;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 16px;
+}
+.room-photo {
+  height: 230px;
+  width: 100%;
+  object-fit: cover;
+}
+.ops-shell {
+  display: flex;
+  min-height: 100vh;
+  background: #f3f6f3;
+}
+.ops-nav {
+  width: 230px;
+  flex-shrink: 0;
+  background: #173b2c;
+  color: #fff;
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+.ops-brand {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 800;
+}
+.ops-brand span {
+  font-size: 16px;
+}
+.ops-nav small {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: #a8c3b6;
+}
+.ops-nav nav {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.ops-nav nav a {
+  color: #cdded4;
+  text-decoration: none;
+  padding: 11px 14px;
+  border-radius: 9px;
+}
+.ops-nav nav a.active,
+.ops-nav nav a:hover {
+  background: #ffffff20;
+  color: white;
+}
+.ops-main {
+  padding: 38px;
+  min-width: 0;
+  flex: 1;
+}
+.page-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.bill-lines {
+  max-width: 500px;
+}
+.bill-lines > div {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+.table th {
+  white-space: nowrap;
+  color: #63746a;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.table td {
+  font-size: 14px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+.btn-dark {
+  background: #173b2c;
+  border-color: #173b2c;
+}
+.form-control:focus,
+.form-select:focus {
+  border-color: #537060;
+  box-shadow: 0 0 0 3px #53706022;
+}
+@media (max-width: 800px) {
+  .ops-shell {
+    display: block;
+  }
+  .ops-nav {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 20px;
+  }
+  .ops-nav nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2px;
+  }
+  .ops-nav nav a {
+    padding: 8px;
+  }
+  .ops-main {
+    padding: 20px;
+  }
+  .ops-nav .mt-auto {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  .ops-nav .mt-auto p {
+    margin: 0;
+  }
+  .hp-card {
+    padding: 18px;
+  }
+}
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .invoice-panel,
+  .invoice-panel * {
+    visibility: visible;
+  }
+  .invoice-panel {
+    position: absolute;
+    inset: 0;
+    border: 0;
+    box-shadow: none;
+  }
+  .no-print,
+  .no-print * {
+    display: none !important;
+  }
+  .ops-main {
+    padding: 0;
+  }
+}

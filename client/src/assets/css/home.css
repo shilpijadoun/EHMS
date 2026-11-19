@@ -3,7 +3,6 @@
   color: #242923;
   font-family: 'Space Grotesk', Arial, sans-serif;
 }
-
 .hotel-navbar {
   z-index: 1020;
   padding: 12px 0;
@@ -61,7 +60,7 @@
   align-items: center;
   overflow: hidden;
   background:
-    url('/assets/img/lights-the-evening-netherlands-holland-zaandam-hd-wallpaper-preview.jpg')
+    url('/img/lights-the-evening-netherlands-holland-zaandam-hd-wallpaper-preview.jpg')
     center 55% / cover no-repeat;
   color: white;
 }
@@ -314,7 +313,6 @@
     padding-right: 0;
   }
 }
-
 @media (max-width: 575px) {
   .hotel-hero {
     min-height: 720px;
@@ -347,3 +345,4 @@
     height: 230px;
   }
 }
+

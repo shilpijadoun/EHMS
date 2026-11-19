@@ -10,7 +10,7 @@ import Navbar from '../../components/common/Navbar'
 
 function Home() {
   const navigate = useNavigate()
-  const [location, setLocation] = useState('')
+  const [guests, setGuests] = useState(1)
   const [checkIn, setCheckIn] = useState('')
   const [checkOut, setCheckOut] = useState('')
 
@@ -21,7 +21,7 @@ function Home() {
 
     const params = new URLSearchParams()
 
-    if (location.trim()) params.set('location', location.trim())
+    params.set('guests', String(guests))
     if (checkIn) params.set('checkIn', checkIn)
     if (checkOut) params.set('checkOut', checkOut)
 
@@ -53,14 +53,15 @@ function Home() {
 
           <form className="hotel-search" onSubmit={handleSearch}>
             <div className="hotel-search-field">
-              <label htmlFor="hotel-location">Destination</label>
+              <label htmlFor="hotel-location">Guests</label>
               <input
                 id="hotel-location"
                 className="form-control"
-                type="text"
-                placeholder="Enter city or location"
-                value={location}
-                onChange={(event) => setLocation(event.target.value)}
+                type="number"
+                min="1"
+                max="20"
+                value={guests}
+                onChange={(event) => setGuests(event.target.value)}
               />
             </div>
 
@@ -71,6 +72,7 @@ function Home() {
                 className="form-control"
                 type="date"
                 min={today}
+                required
                 value={checkIn}
                 onChange={(event) => setCheckIn(event.target.value)}
               />
@@ -83,6 +85,7 @@ function Home() {
                 className="form-control"
                 type="date"
                 min={checkIn || today}
+                required
                 value={checkOut}
                 onChange={(event) => setCheckOut(event.target.value)}
               />
@@ -141,7 +144,7 @@ function Home() {
 
           <div className="col-lg-6">
             <img
-              src="/public/img/lights-the-evening-netherlands-holland-zaandam-hd-wallpaper-preview.jpg"
+              src="/img/lights-the-evening-netherlands-holland-zaandam-hd-wallpaper-preview.jpg"
               className="img-fluid hotel-feature-image"
               alt="Beautiful destination at dusk"
               loading="lazy"
@@ -158,7 +161,7 @@ function Home() {
         <div className="row g-4 align-items-center">
           <div className="col-lg-6">
             <img
-              src="/public/img/Jeffrey-Beers-International-Park-Hyatts-Manhattan-Sky-Suite-1.jpg"
+              src="/img/Jeffrey-Beers-International-Park-Hyatts-Manhattan-Sky-Suite-1.jpg"
               className="img-fluid hotel-feature-image"
               alt="Elegant hotel suite interior"
               loading="lazy"

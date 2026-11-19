@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import './assets/css/index.css'
-import App from './App.jsx'
+import App from './HotelApp.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
