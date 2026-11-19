@@ -26,7 +26,10 @@ function ManageRooms() {
   }
 
   useEffect(() => {
-    fetchRooms()
+    getRooms()
+      .then((response) => setRooms(response.data || []))
+      .catch((err) => setError(err.response?.data?.message || 'Failed to load rooms'))
+      .finally(() => setLoading(false))
   }, [])
 
   const rows = rooms.map((room) => ({
