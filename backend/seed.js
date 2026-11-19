@@ -5,16 +5,16 @@ import connectDB from "./config/db.js";
 import User from "./models/User.js";
 import Room from "./models/Room.js";
 import Settings from "./models/Settings.js";
-import { email, password } from "./domain.js";
 try {
-  const adminEmail = email(process.env.ADMIN_EMAIL),
-    adminPassword = password(process.env.ADMIN_PASSWORD);
+  const hasAdminCredentials = Boolean(
+    process.env.ADMIN_EMAIL && process.env.ADMIN_PASSWORD,
+  );
   await connectDB();
-  if (!(await User.exists({ role: "admin" })))
+  if (hasAdminCredentials && !(await User.exists({ role: "admin" })))
     await User.create({
       name: "Hotel Administrator",
-      email: adminEmail,
-      password: await bcrypt.hash(adminPassword, 12),
+      email: process.env.ADMIN_EMAIL.trim().toLowerCase(),
+      password: await bcrypt.hash(process.env.ADMIN_PASSWORD, 12),
       role: "admin",
     });
   for (const [number, type, rate, capacity] of [
@@ -41,12 +41,18 @@ try {
   await Settings.updateOne(
     { _id: "hotel" },
     {
-      $setOnInsert: { name: "Hotel Palace", email: adminEmail, taxPercent: 0 },
+      $setOnInsert: {
+        name: "Hotel Palace",
+        email: process.env.ADMIN_EMAIL?.trim().toLowerCase() || undefined,
+        taxPercent: 0,
+      },
     },
     { upsert: true },
   );
   console.log(
-    "Initial setup complete. Existing accounts and rooms were preserved.",
+    hasAdminCredentials
+      ? "Initial setup complete. Existing records were preserved."
+      : "Rooms and settings seeded. Set ADMIN_EMAIL and ADMIN_PASSWORD, then run npm run seed again to create the first administrator.",
   );
 } catch (error) {
   console.error(error.message);
