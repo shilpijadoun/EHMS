@@ -1,80 +1,36 @@
-import { Link, useNavigate } from 'react-router-dom'
-const rooms = [
-  {
-    name: 'Deluxe Room',
-    image: '/public/img/images.jpeg',
-    description: 'Relax in a comfortable room designed for a pleasant stay.',
-    price: '₹2,499',
-  },
-  {
-    name: 'Premium Room',
-    image: '/public/img/images (1).jpeg',
-    description: 'Enjoy extra comfort and a welcoming atmosphere.',
-    price: '₹3,499',
-  },
-  {
-    name: 'Luxury Suite',
-    image: '/public/img/homestay-hotel.jpg',
-    description: 'Experience spacious accommodation with premium comfort.',
-    price: '₹4,999',
-  },
-]
-
-
-function RoomCard() {
+import { Link } from "react-router-dom";
+import { useData, currency } from "../../api";
+export default function RoomCard() {
+  const { data, error, loading } = useData("/rooms");
   return (
-    <section className="hotel-rooms-section">
-        <div className="container hotel-section">
-          <div className="text-center hotel-section-heading">
-            <span className="hotel-eyebrow">STAY YOUR WAY</span>
-            <h2>Explore Our Rooms</h2>
-            <p>
-              Find the right space for your next relaxing getaway.
-            </p>
-          </div>
-
-          <div className="row g-4">
-            {rooms.map((room) => (
-              <div className="col-md-6 col-lg-4" key={room.name}>
-                <article className="card hotel-room-card h-100">
-                  <img
-                    src={room.image}
-                    className="card-img-top hotel-room-image"
-                    alt={room.name}
-                    loading="lazy"
-                  />
-
-                  <div className="card-body d-flex flex-column">
-                    <h3 className="hotel-room-title">{room.name}</h3>
-                    <p className="text-muted">{room.description}</p>
-
-                    <div className="mt-auto pt-3 d-flex align-items-center justify-content-between">
-                      <div>
-                        <span className="hotel-room-price">{room.price}</span>
-                        <small className="d-block text-muted">per night*</small>
-                      </div>
-
-                      <Link
-                        to="/booking"
-                        className="btn hotel-outline-btn"
-                      >
-                        Book Now
-                      </Link>
-                    </div>
-                  </div>
-                </article>
+    <section className="container py-5">
+      <h2 className="mb-4">Explore our rooms</h2>
+      {loading && <p>Loading rooms…</p>}
+      {error && <p role="alert">{error}</p>}
+      <div className="row g-4">
+        {data?.slice(0, 3).map((room) => (
+          <div className="col-md-4" key={room._id}>
+            <article className="hp-card p-0 overflow-hidden h-100">
+              <img
+                className="room-photo"
+                src={room.image}
+                alt={room.roomType}
+              />
+              <div className="p-4">
+                <h3>{room.roomType}</h3>
+                <p>{room.description}</p>
+                <strong>{currency(room.pricePerNight)} / night</strong>
+                <Link
+                  className="btn btn-dark d-block mt-3"
+                  to={`/rooms/${room._id}`}
+                >
+                  View room
+                </Link>
               </div>
-            ))}
+            </article>
           </div>
-
-          <div className="text-center mt-5">
-            <Link to="/rooms" className="btn hotel-primary-btn">
-              View All Rooms <i className="bi bi-arrow-right ms-2" />
-            </Link>
-          </div>
-        </div>
-      </section>
-  )
+        ))}
+      </div>
+    </section>
+  );
 }
-
-export default RoomCard

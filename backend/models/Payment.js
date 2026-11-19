@@ -1,11 +1,10 @@
-
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
 
 const paymentSchema = new mongoose.Schema(
   {
     reservation: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Reservation',
+      ref: "Reservation",
       required: true,
     },
     amount: {
@@ -15,28 +14,45 @@ const paymentSchema = new mongoose.Schema(
     },
     method: {
       type: String,
-      enum: ['cash', 'card', 'upi', 'online', 'bank_transfer'],
+      enum: ["cash", "card", "upi", "online", "bank_transfer"],
       required: true,
     },
     transactionId: {
       type: String,
       trim: true,
     },
+    gateway: {
+      type: String,
+      enum: ["manual", "razorpay"],
+      default: "manual",
+    },
+    razorpayOrderId: {
+      type: String,
+      trim: true,
+      unique: true,
+      sparse: true,
+    },
+    razorpayPaymentId: {
+      type: String,
+      trim: true,
+      unique: true,
+      sparse: true,
+    },
     status: {
       type: String,
-      enum: ['pending', 'successful', 'failed', 'refunded'],
-      default: 'successful',
+      enum: ["pending", "successful", "failed", "refunded"],
+      default: "successful",
     },
     receivedBy: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
+      ref: "User",
     },
     paidAt: {
       type: Date,
       default: Date.now,
     },
   },
-  { timestamps: true }
-)
+  { timestamps: true },
+);
 
-export default mongoose.model('Payment', paymentSchema)
+export default mongoose.model("Payment", paymentSchema);

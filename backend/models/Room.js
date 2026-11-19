@@ -3,6 +3,8 @@ import mongoose from 'mongoose'
 
 const roomSchema = new mongoose.Schema(
   {
+    image: { type: String, default: '/img/homestay-hotel.jpg' },
+    bookingVersion: { type: Number, default: 0 },
     roomNumber: {
       type: String,
       required: true,

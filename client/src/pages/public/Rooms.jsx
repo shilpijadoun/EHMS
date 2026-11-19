@@ -188,7 +188,7 @@ function Rooms() {
       </div>
     ))
 
-  const FiltersPanel = () => (
+  const renderFilters = () => (
     <div className="p-3">
       <div className="d-flex align-items-center justify-content-between mb-4">
         <h5 className="fw-bold mb-0">Filters</h5>
@@ -449,7 +449,7 @@ function Rooms() {
         {/* Desktop filters */}
         <aside className="col-lg-3 d-none d-lg-block">
           <div className="rooms-filter-sticky border rounded-4 bg-white shadow-sm">
-            <FiltersPanel />
+            {renderFilters()}
           </div>
         </aside>
 
@@ -760,7 +760,7 @@ function Rooms() {
               />
             </div>
 
-            <FiltersPanel />
+            {renderFilters()}
 
             <div className="sticky-bottom bg-white border-top p-3">
               <button

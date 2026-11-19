@@ -1,8 +1,11 @@
-
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
 
 const reservationSchema = new mongoose.Schema(
   {
+    roomAmount: { type: Number, default: 0 },
+    taxAmount: { type: Number, default: 0 },
+    extraCharges: { type: Number, default: 0 },
+    chargeNotes: String,
     bookingNumber: {
       type: String,
       required: true,
@@ -11,19 +14,19 @@ const reservationSchema = new mongoose.Schema(
     },
     guest: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Guest',
+      ref: "Guest",
       required: true,
     },
     bookingSource: {
       type: String,
-      enum: ['online', 'reception'],
-      default: 'reception',
+      enum: ["online", "reception"],
+      default: "reception",
     },
     rooms: [
       {
         room: {
           type: mongoose.Schema.Types.ObjectId,
-          ref: 'Room',
+          ref: "Room",
           required: true,
         },
         ratePerNight: {
@@ -54,13 +57,13 @@ const reservationSchema = new mongoose.Schema(
     },
     bookingStatus: {
       type: String,
-      enum: ['pending', 'confirmed', 'checked-in', 'checked-out', 'cancelled'],
-      default: 'confirmed',
+      enum: ["pending", "confirmed", "checked-in", "checked-out", "cancelled"],
+      default: "confirmed",
     },
     paymentStatus: {
       type: String,
-      enum: ['unpaid', 'partial', 'paid', 'refunded'],
-      default: 'unpaid',
+      enum: ["unpaid", "partial", "paid", "refunded"],
+      default: "unpaid",
     },
     totalAmount: {
       type: Number,
@@ -72,29 +75,40 @@ const reservationSchema = new mongoose.Schema(
       default: 0,
       min: 0,
     },
+    paymentAccessHash: {
+      type: String,
+      select: false,
+    },
     specialRequests: {
       type: String,
       trim: true,
     },
     createdBy: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
+      ref: "User",
     },
     checkedInAt: Date,
     checkedOutAt: Date,
     cancellationReason: String,
   },
-  { timestamps: true }
-)
+  { timestamps: true },
+);
 
-reservationSchema.pre('validate', function () {
-  if (this.checkInDate && this.checkOutDate && this.checkOutDate <= this.checkInDate) {
-    this.invalidate('checkOutDate', 'Check-out date must be after check-in date')
+reservationSchema.pre("validate", function () {
+  if (
+    this.checkInDate &&
+    this.checkOutDate &&
+    this.checkOutDate <= this.checkInDate
+  ) {
+    this.invalidate(
+      "checkOutDate",
+      "Check-out date must be after check-in date",
+    );
   }
 
   if (!this.rooms || this.rooms.length === 0) {
-    this.invalidate('rooms', 'At least one room is required')
+    this.invalidate("rooms", "At least one room is required");
   }
-})
+});
 
-export default mongoose.model('Reservation', reservationSchema)
+export default mongoose.model("Reservation", reservationSchema);
